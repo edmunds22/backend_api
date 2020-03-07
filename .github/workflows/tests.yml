@@ -36,3 +36,26 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
+             
+    # Sends result of CI test to Slack/backend-builds
+    - name: Failure notification   
+      uses: rtCamp/action-slack-notify@v2.0.0  
+      if: failure()
+      env:
+        SLACK_CHANNEL: backend-builds
+        SLACK_COLOR: '#FF0000'
+        SLACK_ICON: https://avatars1.githubusercontent.com/u/583231?s=400&v=4
+        SLACK_TITLE: ${{ job.status }}
+        SLACK_USERNAME: Tests
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+
+    - name: Success notification
+      uses: rtCamp/action-slack-notify@v2.0.0  
+      if: success()
+      env:
+        SLACK_CHANNEL: backend-builds
+        SLACK_COLOR: '#32CD32'
+        SLACK_ICON: https://avatars1.githubusercontent.com/u/583231?s=400&v=4
+        SLACK_TITLE: ${{ job.status }}
+        SLACK_USERNAME: Tests
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}  
