@@ -21,8 +21,10 @@ During development of the proof of concept, a single Git repository will be used
 ### Versioning
 This code base will make best efforts to adhere to [SemVer 2.0.0](https://semver.org/).
 
-### CI/CD
-Common practice with modern web-based applications is to automate unit-testing, code integration and, eventually, deployment. This practice is known as Continuous Integration / Continuous Deployment (CI/CD). 
+### Testing
+Common practice with modern web-based applications is to automate testing and the integration of new code into the existing code-base. This is the practice of Continuous Integration (CI). This repository will use [GitHub Actions](https://github.com/features/actions) for CI. 
+
+As the application is written in Node.JS and is highly asynchronous, we will utilise the popular [Mocha](https://mochajs.org/) for test automation. Further to this, good practice is to implement a technique such as Test Driven or Behaviour Driven Development (TDD/BDD); this project will utilise another popular framework, [chai](https://www.chaijs.com/), to aid this.
 
 ### Make sure tests workflow doesn't run!
 
