@@ -6,8 +6,11 @@ name: Tests
 # events but only for the master branch
 on:
   push:
+    paths-ignore:
+      # No point testing if we're just updating docs
+      - docs/**
     branches:
-      - feature/*
+      - feature/**
       - develop
       - master
   pull_request:
