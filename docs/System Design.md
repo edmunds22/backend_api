@@ -15,16 +15,15 @@ The version number of the system design will be kept in line with that of versio
 ## Holistic System Design
 Some stuff here, including a nice shiny diagram
 
-## DevOps
-During development of the proof of concept, a single Git repository will be used to for all code bases. This repository is, of course, located [here](https://github.com/CompFigurationLtd/CompFiguration-Backend). The primary reason for this is to reduce development costs, however, this does align with a key design choice highlighted further into this document. 
+## FeathersJS
+[Feathers](https://github.com/feathersjs/feathers) is an extremely popular backend web framework for Node.js specifically designed to be lightweight and support real-time and Represential State Transfer (REST) applications. It's open-source and has a multitude of extensions for database integration, testing and supports a number of popular frontend frameworks. Feathers removes the need to spend hours on a 'Hello, World' just to get up and running with a handy Command Line Interface (CLI) tool to generate a lot of the boilerplate code.
 
-### Versioning
-This code base will make best efforts to adhere to [SemVer 2.0.0](https://semver.org/).
+## Versioning
+This code-base will make best efforts to adhere to [SemVer 2.0.0](https://semver.org/).
 
-### Testing
+## Testing Strategy and Frameworks
 Common practice with modern web-based applications is to automate testing and the integration of new code into the existing code-base. This is the practice of Continuous Integration (CI). This repository will use [GitHub Actions](https://github.com/features/actions) for CI. 
 
 As the application is written in Node.JS and is highly asynchronous, we will utilise the popular [Mocha](https://mochajs.org/) for test automation. Further to this, good practice is to implement a technique such as Test Driven or Behaviour Driven Development (TDD/BDD); this project will utilise another popular framework, [chai](https://www.chaijs.com/), to aid this.
 
-### Make sure tests workflow doesn't run!
-
+Lastly, tests are great - but you need to be sure that you're actually testing your code-base and any libraries to facilitate this. [Istanbul](https://istanbul.js.org/) is one such library and integrates extremely easily with Mocha to provide code coverage reports. Whilst in the proof-of-concept stage a very acceptable code coverage percentage is between 80 and 90%.  
